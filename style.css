@@ -1,0 +1,176 @@
+/*style.css*/
+
+body{
+    background-color: #5A866F; /*윤서추가*/
+    .header {
+        text-align: center;
+        padding: 45px 0;
+        position: relative;
+        background-color: #5A866F;
+    }
+    .m_header { /*윤서추가*/
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0;
+        position: relative;
+        background-color: #5A866F;
+    }
+    .bigfont{
+        font-size: 1.5em;
+    }
+    .sidebar {
+        color:#F9F5DC;
+        margin-left: 20px;
+        float: left;
+        width: 250px;
+        height: 510px;
+
+        background-color: #3D5C4B;
+        font-size: 13px;
+    }
+    .sidebar-content{
+        margin-left: 20px;
+        height: 510px;
+    }
+    .nav {
+        float: right;
+        margin-top: -10px;
+        margin-right: 80px;
+    }
+    .content {
+        color:#3D5C4B;
+        margin-left:300px;
+        margin-right:20px;
+        height: 510px;
+        overflow: auto;
+        background-color: #fff;
+    }
+    .content-container{
+        margin-right: 20px;
+        
+        /* height: 510px; */
+    }
+    .main {
+        text-align: center;
+        background-color: #5A866F;
+    }
+    .title-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .title {
+        color: #F9F5DC;
+        font-family: 'Gugi', sans-serif;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu { /*info.php*/
+        margin-left:20px;
+        margin-right: 20px;
+        background-color: #fff;
+    }
+
+    .imgimage-container{
+        margin-right: 10px;
+    }
+    .data-container{
+        font-size: 15px;
+        flex-grow: 1;
+        margin-right:20px
+    }
+    .container-wrapper {
+        margin-left: 20px;
+        margin-top: 20px;
+        background-color: #fff;
+        display: flex;
+        align-items: flex-start;
+    }
+    .menu-item {
+        display: flex;
+        gap: 100px;
+        font-size: 13px;
+        border-bottom: 1px solid #3D5C4B;
+        padding-bottom: 8px; /* 구분선과의 간격 조정을 위해 추가 */
+        margin-bottom: 8px; /* 구분선과의 간격 조정을 위해 추가 */
+        border-bottom-style: dotted;
+    }
+    .m-name {
+        display: inline-block;
+        width: 150px; /* Adjust the width as needed */
+    }
+
+    .list-item {
+        display: flex;
+        gap: 100px;
+        font-size: 13px;
+        border-bottom: 1px solid #3D5C4B;
+        padding-bottom: 8px; /* 구분선과의 간격 조정을 위해 추가 */
+        margin-bottom: 8px; /* 구분선과의 간격 조정을 위해 추가 */
+        border-bottom-style:dotted;
+    }
+    .list-title {
+        display: flex;
+        gap: 100px;
+        font-size: 13px;
+        border-bottom: 1px solid #3D5C4B;
+        padding-bottom: 8px; /* 구분선과의 간격 조정을 위해 추가 */
+        margin-bottom: 8px; /* 구분선과의 간격 조정을 위해 추가 */
+        /* border-bottom-style:dotted; */
+    }
+    .list-name {
+        display: inline-block;
+        width: 150px; /* Adjust the width as needed */
+    }
+    .list-menu{
+        display: inline-block;
+        width: 450px;
+    }
+    .button {
+        position: absolute;
+        top: 50%; 
+        left: 50%;
+        border: none;
+        border-radius: 50%;
+        opacity: 0.8;
+        padding: 35px 30px;
+        background-color: #3D5C4B;
+        color: #F9F5DC;
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 16px;
+
+    }
+    .button-a{
+        transform: translate(-70%, -70%);
+    }
+    .button-b{
+        transform: translate(-50%, 130%);
+    }
+    .button-c{
+        transform: translate(-220%, -10%);
+    }
+    .button-d{
+        transform: translate(90%, -50%);
+    }
+    .button-e{
+        transform: translate(160%, 130%);
+    }
+    .larger-txt{
+        font-size: 48px; 
+    }
+
+    .link {
+        color: inherit; /* 링크의 색상을 상속받아 원래 텍스트 색상과 동일하게 설정합니다. */
+        text-decoration: none; /* 링크의 밑줄을 제거합니다. */
+    }
+    
+}
