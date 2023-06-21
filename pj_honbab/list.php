@@ -164,50 +164,17 @@
 
     $location = $_GET['location'];
 
-    // 데이터 조회 쿼리 실행
-    if($location == '전체'){
-        $sql = "SELECT distinct honbabtbl.id, honbabtbl.name
-        FROM honbabtbl
-        INNER JOIN addtbl ON honbabtbl.id = addtbl.id
-        INNER JOIN usetbl ON honbabtbl.id = usetbl.id
-        WHERE addtbl.level IN(".implode(',',$arr_lev).")
-        and addtbl.type IN('".implode("','", $arr_ty)."')
-        and usetbl.how IN('".implode("','", $arr_h)."')";
-        if (isset($_POST['st_b'])) {
-            $sql .= " AND honbabtbl.st_b IS NULL";
-        }
-        $result = $conn->query($sql);
-    }
-    else{
-        $sql = "SELECT distinct honbabtbl.id, honbabtbl.name
-        FROM honbabtbl
-        INNER JOIN addtbl ON honbabtbl.id = addtbl.id
-        INNER JOIN usetbl ON honbabtbl.id = usetbl.id
-        WHERE location = '$location'
-        and addtbl.level IN(".implode(',',$arr_lev).")
-        and addtbl.type IN('".implode("','", $arr_ty)."')
-        and usetbl.how IN('".implode("','", $arr_h)."')";
-        if (isset($_POST['st_b'])) {
-            $sql .= " AND honbabtbl.st_b IS NULL";
-        }
-        $result = $conn->query($sql);
-    }
-
-    //위치별 초기창
-    $sql_start = "SELECT honbabtbl.id, honbabtbl.name
-    FROM honbabtbl
-    INNER JOIN addtbl ON honbabtbl.id = addtbl.id
-    WHERE location = '$location'";
-    $result_s = $conn->query($sql_start);
     
-    //전체 초기창
+
+    if (!isset($_POST['submit'])) { //필터를 적용하지 않았을 때
+        if($location == "전체") {
+
+             //전체 초기창
     $sql_s_e = "SELECT honbabtbl.id, honbabtbl.name
     FROM honbabtbl
     INNER JOIN addtbl ON honbabtbl.id = addtbl.id";
     $result_s_e = $conn->query($sql_s_e);
 
-    if (!isset($_POST['submit'])) {
-        if($location == "전체") {
             echo "<ul>";
             while ($row = $result_s_e->fetch_assoc()) {
                 $name = $row["name"];
@@ -247,6 +214,16 @@
             }
         }
         else {
+
+            
+    //위치별 초기창
+    $sql_start = "SELECT honbabtbl.id, honbabtbl.name
+    FROM honbabtbl
+    INNER JOIN addtbl ON honbabtbl.id = addtbl.id
+    WHERE location = '$location'";
+    $result_s = $conn->query($sql_start);
+    
+   
             echo "<ul>";
             while ($row = $result_s->fetch_assoc()) {
                 $name = $row["name"];
@@ -285,6 +262,36 @@
             }
         }
     } else {
+
+        // 데이터 조회 쿼리 실행
+    if($location == '전체'){
+        $sql = "SELECT distinct honbabtbl.id, honbabtbl.name
+        FROM honbabtbl
+        INNER JOIN addtbl ON honbabtbl.id = addtbl.id
+        INNER JOIN usetbl ON honbabtbl.id = usetbl.id
+        WHERE addtbl.level IN(".implode(',',$arr_lev).")
+        and addtbl.type IN('".implode("','", $arr_ty)."')
+        and usetbl.how IN('".implode("','", $arr_h)."')";
+        if (isset($_POST['st_b'])) {
+            $sql .= " AND honbabtbl.st_b IS NULL";
+        }
+        $result = $conn->query($sql);
+    }
+    else{
+        $sql = "SELECT distinct honbabtbl.id, honbabtbl.name
+        FROM honbabtbl
+        INNER JOIN addtbl ON honbabtbl.id = addtbl.id
+        INNER JOIN usetbl ON honbabtbl.id = usetbl.id
+        WHERE location = '$location'
+        and addtbl.level IN(".implode(',',$arr_lev).")
+        and addtbl.type IN('".implode("','", $arr_ty)."')
+        and usetbl.how IN('".implode("','", $arr_h)."')";
+        if (isset($_POST['st_b'])) {
+            $sql .= " AND honbabtbl.st_b IS NULL";
+        }
+        $result = $conn->query($sql);
+    }
+
         if(!empty($arr_err)) {
             echo implode(", ", $arr_err), "를(을) 선택해주세요.";
         } else if($result && $result->num_rows > 0) {
